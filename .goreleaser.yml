@@ -205,6 +205,9 @@ dockers:
   - dockerfile: .docker/Dockerfile-scratch
     ids:
       - hydra
+    use: buildx
+    build_flag_templates:
+      - "--platform=linux/amd64,linux/arm64"
     image_templates:
       - "oryd/hydra:v{{ .Major }}"
       - "oryd/hydra:v{{ .Major }}.{{ .Minor }}"
